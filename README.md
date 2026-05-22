@@ -163,7 +163,7 @@ DIVIDE([Total Profit], [Total Sales], 0)
 
 # 📷 Dashboard Preview
 
-(Add dashboard screenshot here)
+![Dashboard](powerbi/dashboard.png) 
 
 ---
 
