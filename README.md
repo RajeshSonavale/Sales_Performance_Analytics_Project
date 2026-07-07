@@ -1,3 +1,4 @@
+# cloud_sales_analysis
 # 📊 Sales Performance Analytics Dashboard using Azure SQL & Power BI
 
 ## 🚀 Project Overview
@@ -163,7 +164,7 @@ DIVIDE([Total Profit], [Total Sales], 0)
 
 # 📷 Dashboard Preview
 
-![Dashboard](powerbi/dashboard.png) 
+(Add dashboard screenshot here)
 
 ---
 
@@ -179,3 +180,4 @@ DIVIDE([Total Profit], [Total Sales], 0)
 # 📎 Author
 
 Rajesh Sonavale
+
