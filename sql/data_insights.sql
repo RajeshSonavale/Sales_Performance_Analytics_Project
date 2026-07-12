@@ -1,3 +1,7 @@
+-- ------------------------------------------------------------------------------------------------------------------------
+# Sales insights 
+-- ------------------------------------------------------------------------------------------------------------------------
+
 -- 1 : Overall Business Performance
 -- Understand total sales, profit, and order volume
 SELECT 
@@ -7,6 +11,7 @@ SELECT
     ROUND(SUM(profit)/SUM(sales)*100,2) AS profit_margin
 FROM fact_sales;
 # Analyzed overall business performance including revenue, profitability, and order volume. 
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 2 : Top 10 Products by Revenue
 -- Identify best-performing products
@@ -19,6 +24,7 @@ GROUP BY dp.product_name
 ORDER BY total_sales DESC
 LIMIT 10;
 # Identified top-performing products contributing the highest revenue.
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 3 : Category-wise Profitability
 -- To check Which category is most profitable
@@ -32,18 +38,19 @@ JOIN dim_product dp ON fs.product_id = dp.product_id
 GROUP BY dp.category
 ORDER BY total_profit DESC;
 # Evaluated category-wise profitability to identify high-margin segments.
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 4 : Monthly Sales Trend (Seasonality)
 -- Analyze sales trend over time 
 SELECT 
-    dc.customer_name,
+    Monthname(dd.order_date),
     ROUND(SUM(fs.sales),2) AS total_sales
 FROM fact_sales fs
-JOIN dim_customer dc ON fs.customer_id = dc.customer_id
-GROUP BY dc.customer_name
-ORDER BY total_sales DESC
-LIMIT 10;
-# Identified seasonal trends and peak sales months.
+JOIN dim_date dd ON fs.order_date = dd.order_date
+GROUP BY monthname(dd.order_date)
+ORDER BY total_sales DESC;
+# Identified seasonal trends and peak sales months and lower sales Months.
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 5 : Top Customers (Revenue Contribution)
 -- Find high-value customers
@@ -56,6 +63,7 @@ GROUP BY dc.customer_name
 ORDER BY total_sales DESC
 LIMIT 10;
 # Identified top customers contributing significantly to revenue.
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 6 : Customer Segmentation
 -- Segment customers based on spending 
@@ -70,6 +78,7 @@ SELECT
 FROM fact_sales
 GROUP BY customer_id;
 # Segmented customers into high, medium, and low value for targeted strategies
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 7 : Discount Impact on Profit
 -- Check how discount affects profit 
@@ -80,6 +89,7 @@ FROM fact_sales
 GROUP BY discount
 ORDER BY discount;
 # Observed that higher discounts may reduce profitability
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 8 : Delivery Performance
 -- Measure delivery efficiency
@@ -87,6 +97,7 @@ SELECT
     AVG(DATEDIFF(ship_date, order_date)) AS avg_delivery_days
 FROM fact_sales;
 # Measured average delivery time to evaluate operational efficiency
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 9 : Running Sales Trend
 -- Track cumulative growth
@@ -97,6 +108,7 @@ SELECT
 FROM fact_sales
 GROUP BY order_date;
 # Tracked cumulative revenue growth over time
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 10 : Top Product per Category
 -- Best product in each category
@@ -113,6 +125,7 @@ FROM (
 ) t
 WHERE rnk = 1;
 # Identified top-performing product in each category. 
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 11 : Top Customer with Ranking
 -- Identify top customer 
@@ -131,6 +144,7 @@ SELECT
 FROM customer_sales cs
 JOIN dim_customer dc ON cs.customer_id = dc.customer_id;
 # Identified top-performing customer
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- 12 : Sales By year 
 -- dynamic filter of sales by year 
@@ -151,3 +165,4 @@ DELIMITER ;
 CALL GetSalesByYear(2020);
 
 # get sales by each year using function.
+-- ------------------------------------------------------------------------------------------------------------------------

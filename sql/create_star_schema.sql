@@ -1,17 +1,22 @@
+-- ------------------------------------------------------------------------------------------------------------------------
+# Create Star Schema for the Project 
+-- ------------------------------------------------------------------------------------------------------------------------
 
 -- Step 1 : Create a Database and use that
+
 CREATE DATABASE sales_project;
 USE sales_project;
 
+-- ------------------------------------------------------------------------------------------------------------------------
 -- Step 2 : Create a Dimension table
-# dim_customer
+# A) dim_customer
 CREATE TABLE dim_customer (
     customer_id VARCHAR(50) PRIMARY KEY,
     customer_name VARCHAR(255),
     segment VARCHAR(50)
 );
 
-# dim_product 
+# B) dim_product 
 CREATE TABLE dim_product (
     product_id VARCHAR(50) PRIMARY KEY,
     product_name VARCHAR(255),
@@ -20,7 +25,7 @@ CREATE TABLE dim_product (
 );
 
 
-# dim_date
+# C) dim_date
 CREATE TABLE dim_date (
     order_date DATE PRIMARY KEY,
     year INT,
@@ -28,6 +33,7 @@ CREATE TABLE dim_date (
     quarter INT
 );
 
+-- ------------------------------------------------------------------------------------------------------------------------
 -- Step 3 : Create a fact table 
 # fact_sales
 CREATE TABLE fact_sales (
@@ -46,6 +52,7 @@ CREATE TABLE fact_sales (
     FOREIGN KEY (order_date) REFERENCES dim_date(order_date)
 );
 
+-- ------------------------------------------------------------------------------------------------------------------------
 # Step 4 : load data in Mysql by Table Data Import Wizard
 
 select * from dim_customer;
@@ -82,3 +89,4 @@ describe dim_product;
 
 select * from fact_sales;
 
+-- ------------------------------------------------------------------------------------------------------------------------
