@@ -22,6 +22,9 @@ Raw Sales Data (CSV)
 Python ETL & Data Cleaning
         │
         ▼
+MySQL (Star Schema Creation & Data Validation)
+        │
+        ▼
 Azure Blob Storage
         │
         ▼
@@ -167,21 +170,26 @@ Cloud-Sales-Performance-Analysis/
 │
 ├── data/
 │   ├── raw/
-│   │   └── sales_data.csv
+│   │   └── sales_data_raw_with_transformation.xlsx
 │   └── processed/
-│       └── final_sales_data.csv
+│       └── dim_customer.csv
+|       └── dim_date.csv
+|       └── dim_location.csv
+|       └── dim_product.csv
+|       └── fact_sales.csv
+|       └── sales_cleaned.csv
 │
 ├── notebooks/
-│   └── data_cleaning_and_ETL.ipynb
+│   └── data_cleaning/
+|        └── data_cleaning.ipynb
+|         └── sql_connection.ipynb
 │
 ├── sql/
 │   ├── create_star_schema.sql
-│   └── business_analysis_queries.sql
+│   └── data_insights.sql
 │
 ├── dashboard/
 │   └── cloud_sales_dashboard.pbix
-│
-├── images/
 │   ├── executive_summary.png
 │   ├── product_analysis.png
 │   ├── customer_analysis.png
