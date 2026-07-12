@@ -15,6 +15,7 @@ Developed an end-to-end cloud-based sales analytics solution that transformed ra
 ---
 
 # 📂 Project Architecture
+```
 Raw Sales Data (CSV)
         │
         ▼
@@ -32,6 +33,7 @@ Power BI Dashboard
         ▼
 Business Insights & Recommendations
 
+```
 ---
 
 ## 🛠️ Technology Stack
@@ -74,23 +76,35 @@ Business Insights & Recommendations
 
 ## 📊 Dashboard Preview
 
-The Power BI dashboard provides an interactive view of sales performance through executive KPIs, product analysis, customer insights, and business recommendations. It enables stakeholders to monitor revenue, profitability, customer behavior, and sales trends for data-driven decision-making.
+### 📈 Executive Summary
 
-### 📌 Executive Summary
+Provides a high-level overview of sales performance, profit, orders, profit margin, and key business KPIs across different years and product categories.
 
-![Executive Summary](images/executive_summary.png)
+![Executive Summary](dashboard/executive_summary.png)
+
+---
 
 ### 📦 Product Analysis
 
-![Product Analysis](images/product_analysis.png)
+Analyzes product category performance, sub-category trends, sales distribution, and profitability to identify top-performing products.
+
+![Product Analysis](dashboard/product_analysis.png)
+
+---
 
 ### 👥 Customer Analysis
 
-![Customer Analysis](images/customer_analysis.png)
+Explores customer segmentation, regional performance, and purchasing behavior to identify high-value customers and sales opportunities.
+
+![Customer Analysis](dashboard/customer_analysis.png)
+
+---
 
 ### 💡 Insights & Recommendations
 
-![Insights & Recommendations](images/insights_recommendations.png)
+Summarizes key business insights and provides actionable recommendations to improve sales performance, profitability, and customer engagement.
+
+![Insights & Recommendations](dashboard/insights_recommendations.png)
 ---
 ## 📈 Key KPIs
 
