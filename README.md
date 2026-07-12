@@ -103,11 +103,11 @@ Explores customer segmentation, regional performance, and purchasing behavior to
 
 ---
 
-### 💡 Insights & Recommendations
+### 💡 Insights_Recommendations
 
 Summarizes key business insights and provides actionable recommendations to improve sales performance, profitability, and customer engagement.
 
-![Insights & Recommendations](dashboard/insights_recommendations.png)
+![Insights_Recommendations](dashboard/insights_recommendations.png)
 ---
 ## 📈 Key KPIs
 
